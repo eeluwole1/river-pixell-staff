@@ -4,8 +4,8 @@ import type { Employee } from "../types/Employee";
 export const employeeData: Employee[] = Object.entries(
   employeesJson.departments as Record<string, string[]>
 ).flatMap(([department, names]) =>
-  names.map((name, idx) => ({
-    id: `${department}-${idx}-${name}`,
+  names.map((name, employeeIndex) => ({
+    id: `${department}-${employeeIndex}-${name}`,
     name,
     department,
   }))

@@ -51,15 +51,15 @@ const updateEmployeeDepartment = async (employeeId: string, department: string) 
     let result = [...employees];
 
     if (filters.department !== "All") {
-      result = result.filter((e) => e.department === filters.department);
+      result = result.filter((emp) => emp.department === filters.department);
     }
 
     if (filters.searchTerm) {
       const st = filters.searchTerm.toLowerCase();
       result = result.filter(
-        (e) =>
-          e.name.toLowerCase().includes(st) ||
-          e.department.toLowerCase().includes(st)
+        (emp) =>
+          emp.name.toLowerCase().includes(st) ||
+          emp.department.toLowerCase().includes(st)
       );
     }
 
