@@ -2,7 +2,7 @@ import { Input } from "../../ui/Input";
 import { Select } from "../../ui/Select";
 import { EmployeeList } from "../EmployeeList";
 import { useEmployees } from "../../../hooks/useEmployees";
-
+import { Link } from "react-router";
 
 
 export function EmployeesPage() {
@@ -29,6 +29,11 @@ export function EmployeesPage() {
         </Select>
       </div>
 
+        <Link to="/employees/create" className="createLink">
+          + New Employee
+        </Link>
+
+        
      <div className="resultsLine">{filteredEmployees.length} results</div>
      <section className="employeeGrid"></section>
       <EmployeeList

@@ -1,6 +1,4 @@
 import organizationJson from "../../data/organization.json";
-import { useEffect, useState } from "react";
-
 
 interface LeadershipRole {
   role: string;
