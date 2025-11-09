@@ -38,8 +38,3 @@ export async function updateRole(role: Role): Promise<Role> {
   const json: BaseResponse<Role> = await res.json();
   return json.data!;
 }
-
-export async function deleteRole(roleId: string): Promise<void> {
-  const res = await fetch(`${BASE_URL}/roles/delete/${roleId}`, { method: "DELETE" });
-  if (!res.ok) throw new Error(`Failed to delete role with id ${roleId}`);
-}

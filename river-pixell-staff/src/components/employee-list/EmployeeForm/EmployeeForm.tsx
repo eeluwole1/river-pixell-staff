@@ -68,16 +68,16 @@ export function EmployeeForm({ formMode, employeeId }: EmployeeFormProps) {
       const employeeErrors = await validateEmployee(employeeData);
   setErrors(employeeErrors);
 
-    if (employeeErrors.size == 0) {
+    if (employeeErrors.size > 0) return; {
       let toastMessage = `Successfully created new employee ${employeeData.name}!`;
       let employeeId = employeeData.id;
 
       if (formMode == "create") {
         const newEmployee = await EmployeeService.createNewEmployee({
 
-            id: "0",
-            name: employeeData.name,
+            name: employeeData.name.trim(),
             department: employeeData.department,
+            roleId:(employeeData as any).roleId ?? null,
           } as Employee);
         } else {
           toastMessage = "Successfully updated employee!";

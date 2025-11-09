@@ -44,10 +44,3 @@ export async function updateEmployee(employee: Employee):Promise<Employee> {
   const json: BaseResponse<Employee> = await res.json();
   return json.data!;
 }
-
-export async function deleteEmployee(employeeId: string): Promise<void> {
-  const res: Response = await fetch(`${BASE_URL}/employees/delete/${employeeId}`, {
-    method: "DELETE",
-  });
-  if (!res.ok) throw new Error(`Failed to delete employee with id ${employeeId}`);
-}
